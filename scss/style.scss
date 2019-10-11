@@ -4,10 +4,24 @@ $base-color: darkgreen;
   border: 1px solid $base-color;
 }
 
+@mixin style-border {
+  @include dark-border;
+  border-radius: 5px;
+  background: white;
+  color: $base-color;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: $base-color;
 }
+
+:focus {outline:none;}
 
 * {
   box-sizing: border-box;
@@ -18,43 +32,63 @@ body {
   height: 100vh;
   display: flex;
 }
-  form {
-    margin: auto;
-    color: $base-color;
-    max-width: 500px;
+
+form {
+  margin: auto;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  @include dark-border;
+  padding: 20px;
+  background: lightgreen;
+
+
+  label {
     display: flex;
-    flex-direction: column;
-    @include dark-border;
-    padding: 20px;
-    background: lightgreen;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
 
-
-    label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      input {
-        height: 40px;
-      }
-    }
-
-    .wrapper-buttons {
-      display: flex;
-      justify-content: center;
-      button {
-        width: 120px;
-        height: 40px;
-      }
-      :first-child {
-        margin-right: 40px;
-      }
-      margin-bottom: 20px;
-    }
-    .result {
-      width: 458px;
-      word-wrap: break-word;
-      text-align: center;
-      line-height: 24px;
+    input {
+      height: 40px;
+      width: 230px;
+      padding: 0 5px;
+      @include style-border;
     }
   }
+
+  .wrapper-buttons {
+    display: flex;
+    justify-content: center;
+
+    button {
+      @include style-border;
+      width: 120px;
+      height: 40px;
+      transition: 0.2s;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    button:hover {
+      background: #94ffb1;
+    }
+
+    button:active {
+
+    }
+
+    :first-child {
+      margin-right: 40px;
+    }
+
+    margin-bottom: 20px;
+  }
+
+  .result {
+    width: 458px;
+    word-wrap: break-word;
+    text-align: center;
+    line-height: 24px;
+  }
+}
