@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lab_2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapper">
+    <form action="">
+        <label for="text">Введіть текст <input type="text" id="text"></label>
+        <label for="word">Введіть стрічку для перевірки <input type="text" id="word"></label>
+        <div class="wrapper-buttons">
+            <button  type="button" onclick="checkText()">Перевірити</button>
+            <button type="reset" onclick="resetForm()">Скинути</button>
+        </div>
+        <div class="result"></div>
+    </form>
+</div>
+
+<script>
+    function resetForm() {
+        document.getElementsByClassName("result")[0].innerHTML='';
+    }
+
+    function checkText () {
+        let text = document.getElementById("text").value;
+        let word = document.getElementById("word").value;
+        let result='';
+        if (text === '' || word === '')
+            result="НЕДОСТАТНЬО ДАНИХ!";
+        else {
+            result = "ВВЕДЕНА СТРІЧНА <br>'" + text;
+            text.endsWith(word) ? result += "'<br>" : result += "'<br> НЕ";
+            result+= " ЗАКІНЧУЄТЬСЯ СТРІЧКОЮ <br>'" + word+"'";
+        }
+        document.getElementsByClassName("result")[0].innerHTML=result;
+    }
+</script>
+</body>
+</html>

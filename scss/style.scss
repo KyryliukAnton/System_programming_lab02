@@ -1,0 +1,60 @@
+$base-color: darkgreen;
+
+@mixin dark-border {
+  border: 1px solid $base-color;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+  form {
+    margin: auto;
+    color: $base-color;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    @include dark-border;
+    padding: 20px;
+    background: lightgreen;
+
+
+    label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      input {
+        height: 40px;
+      }
+    }
+
+    .wrapper-buttons {
+      display: flex;
+      justify-content: center;
+      button {
+        width: 120px;
+        height: 40px;
+      }
+      :first-child {
+        margin-right: 40px;
+      }
+      margin-bottom: 20px;
+    }
+    .result {
+      width: 458px;
+      word-wrap: break-word;
+      text-align: center;
+      line-height: 24px;
+    }
+  }
